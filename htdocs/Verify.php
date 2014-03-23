@@ -2,9 +2,12 @@
 
 <html>
 <head> 
-<title>Verification page</title>	  
+<title>Verification page</title>
+<link rel="stylesheet" href="stylesheet.css" 
+      type="text/css"/> 	  
 </head>
 <body>
+<img src="img/logo.jpg" name="logo" id="logo" >
 <h3> 
 <?php
 	$servername="localhost";

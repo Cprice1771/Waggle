@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	//Check if they filled in all the forms
 	if($_GET["firstName"] && $_GET["lastName"] && $_GET["email"] && $_GET["password"] && $_GET["password2"])
 	{
@@ -11,7 +12,7 @@
 				if(validPass($_GET["password"]))
 				{
 					//Do database stuff
-					/*
+					
 					$servername="localhost";
 					$username="login";
 					$password = '1231'; 
@@ -24,7 +25,7 @@
 					
 					if(mysql_errno() == 1062)
 					{
-						print "That email already exists!";
+						$_SESSION['error'] = "That email already exists!";
 					}
 					else
 					{
@@ -36,21 +37,19 @@
 							
 						if(mail($to, $subject, $message))
 						{
-							print "<h1>You have registered successfully, please check your email to verify your account</h1>";
-							
-							print "<a href='index.php'>go to login page</a>";
+							header('Location:Success.php');
 						}
-						else print "Failed to send email!";
+						else $_SESSION['error'] = "Failed to send email!";
 						
-					}*/
+					}
 				}
-				else return "Your password must be at least 8 characters and have at least 1 number and character";
+				else $_SESSION['error'] = "Invalid password";
 			}
-			else return "The passwords don't match!";
+			else $_SESSION['error'] = "The passwords don't match!";
 		}
-		else return "You must register with an spsu.edu email address!";
+		else $_SESSION['error'] = "You must register with an spsu.edu email address!";
 	}
-	else return "You didn't enter all the fields!";
+	else $_SESSION['error'] = "You didn't enter all the fields!";
 	
 	function validPass($pass) {
 		//If its at least 8 characters
@@ -66,6 +65,8 @@
 		return true;
 		
 	}
+	
+	header('Location:Registration.php');
 ?>
 	
 		

@@ -1,0 +1,45 @@
+#logo 
+{
+	height:13em;
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+body 
+{ 
+	color: Black;
+	background-color: #cbd3cf;
+}
+
+form 
+{ 
+	display: block;
+	text-align: center;
+	
+}
+
+ table
+ {
+	border-collapse:collapse;
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+ }
+ 
+ table, th, td
+ {
+	border: 0px solid Green;
+	margin-left: auto;
+	margin-right:auto;
+ }
+ 
+#content
+{
+	text-align: center;
+}
+
+#error
+{
+	color: Red;
+}
