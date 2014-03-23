@@ -17,5 +17,8 @@
 </head>
 <body>
 <h1> Test! </h1>
+<form action="register.html">
+    <input type="submit" value="Register">
+</form>
 </body>
 </html>

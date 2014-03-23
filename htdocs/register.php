@@ -11,35 +11,46 @@
 				if(validPass($_GET["password"]))
 				{
 					//Do database stuff
-					/*$servername="localhost";
-					$username="root";
-					$conn=mysql_connect($servername,$username)or die(mysql_error());
-					mysql_select_db("my_db", $conn);
-					$sql="insert into users (firstName, lastName, email, password, verified)values('$_GET["firstName"]' , '$_GET["lastName"]' , '$_GET["email"]' , '$_GET["password"]', FALSE)";
-					$result=mysql_query($sql,$conn) or die(mysql_error());*/
+					/*
+					$servername="localhost";
+					$username="login";
+					$password = '1231'; 
+					$conn=mysql_connect($servername,$username, $password)or die(mysql_error());
+					mysql_select_db("waggle", $conn);
+					$sql="INSERT INTO users (FirstName, LastName, Email, Password, Verified, Banned) 
+					VALUES
+					('$_GET[firstName]' , '$_GET[lastName]' , '$_GET[email]' , '$_GET[password]', FALSE, FALSE)";
+					$result=mysql_query($sql,$conn);
 					
-					$to      = $_GET["email"];
-					$subject = 'Waggle account creation confirmation';
-					$message = 'Click this link! spsu.edu \n New line';
-					$headers = 'From: webmaster@example.com' . "\r\n" .
-						'Reply-To: webmaster@example.com' . "\r\n" .
-						'X-Mailer: PHP/' . phpversion();
-						
-					if(mail($to, $subject, $message, $headers))
+					if(mysql_errno() == 1062)
 					{
-						print "<h1>You have registered successfully, please check your email to verify your account</h1>";
-						
-						print "<a href='index.php'>go to login page</a>";
+						print "That email already exists!";
 					}
-					else print "Failed to send email!";
+					else
+					{
+						$to      = $_GET["email"];
+						$subject = 'Waggle account creation confirmation';
+						$email = $_GET["email"];
+						$message = 'Activation link: localhost/Verify.php?email='.$email.'';
+
+							
+						if(mail($to, $subject, $message))
+						{
+							print "<h1>You have registered successfully, please check your email to verify your account</h1>";
+							
+							print "<a href='index.php'>go to login page</a>";
+						}
+						else print "Failed to send email!";
+						
+					}*/
 				}
-				else print "Your password must be at least 8 characters and have at least 1 number and character";
+				else return "Your password must be at least 8 characters and have at least 1 number and character";
 			}
-			else print "The passwords don't match!";
+			else return "The passwords don't match!";
 		}
-		else print "You must register with an spsu.edu email address!";
+		else return "You must register with an spsu.edu email address!";
 	}
-	else print "You didn't enter all the fields!";
+	else return "You didn't enter all the fields!";
 	
 	function validPass($pass) {
 		//If its at least 8 characters
@@ -56,4 +67,5 @@
 		
 	}
 ?>
-			
+	
+		

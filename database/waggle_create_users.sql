@@ -1,6 +1,6 @@
 CREATE DATABASE waggle;
 
-CREATE TABLE useres
+CREATE TABLE users
 (
 FirstName varchar(45),
 LastName varchar(45),
