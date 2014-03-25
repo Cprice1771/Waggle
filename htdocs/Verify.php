@@ -1,5 +1,3 @@
-
-
 <html>
 <head> 
 <title>Verification page</title>
@@ -7,7 +5,7 @@
       type="text/css"/> 	  
 </head>
 <body>
-<img src="img/logo.jpg" name="logo" id="logo" >
+<a href="Index.php"> <img src="img/logo.jpg" name="logo" id="logo" ></a>
 <h3> 
 <?php
 	$servername="localhost";
@@ -19,5 +17,6 @@
 	echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
 ?>
 </h1>
+<a href="Index.php">Login</a>
 </body>
 </html>

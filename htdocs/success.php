@@ -1,13 +1,22 @@
+<?php
+session_start();
+?>
 <html>
 <head>
-	<title>Registration Success!</title>
+	<title>Success!</title>
 	<link rel="stylesheet" href="stylesheet.css" 
       type="text/css"/> 
 <head>
 <body>
-<img src="img/logo.jpg" name="logo" id="logo" >
-<h1>You have registered successfully, please check your email to verify your account</h1>
+<a href="Index.php"> <img src="img/logo.jpg" name="logo" id="logo" ></a>
+<h3><?php 
+	if(isset($_SESSION['SuccessMessage']))
+	{
+	echo $_SESSION['SuccessMessage'];
+	$_SESSION['SuccessMessage'] = '';
+	}
+?></h3>
 							
-<a href='index.php'>go to login page</a>
+<a href='index.php'>login</a>
 </body>
 </html>

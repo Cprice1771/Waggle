@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
 </head>
 <body>
-<img src="img/logo.jpg" name="logo" id="logo" >
+<a href="Index.php"> <img src="img/logo.jpg" name="logo" id="logo" ></a>
 <div id="container">
 <div class="container1">
 <form action="login.php" method=get id="my_form">
@@ -23,10 +23,10 @@
 		</tr>
 	    <tr align="right">
 		   <td align="right">
-		   <input type="button" onclick="window.location.href='registration.php'" value="Forgot Password">
+		   <input type="button" onclick="window.location.href='recoverForm.php'" value="Forgot Password">
 		   </td>
 		   <td align="right">
-		   <input type="button" onclick="window.location.href='registration.php'" value="Register">
+		   <input type="button" onclick="window.location.href='registrationForm.php'" value="Register">
 		   </td>
 	    </tr>
    </table>

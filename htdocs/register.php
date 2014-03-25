@@ -37,6 +37,7 @@
 							
 						if(mail($to, $subject, $message))
 						{
+							$_SESSION['SuccessMessage'] = "Success! You have registered an account with waggle, please check your email for a verification link!";
 							header('Location:Success.php');
 						}
 						else $_SESSION['error'] = "Failed to send email!";
@@ -66,7 +67,7 @@
 		
 	}
 	
-	header('Location:Registration.php');
+	header('Location:RegistrationForm.php');
 ?>
 	
 		
